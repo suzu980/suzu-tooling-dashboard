@@ -1,1 +1,0 @@
-This is for app routes, can also be for pages.
