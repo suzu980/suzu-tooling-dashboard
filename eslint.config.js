@@ -1,7 +1,9 @@
 import js from "@eslint/js";
 import globals from "globals";
-import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
+import reactHooks from "eslint-plugin-react-hooks";
+import importPlugin from "eslint-plugin-import";
+import checkFile from "eslint-plugin-check-file";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config(
@@ -16,6 +18,8 @@ export default tseslint.config(
     plugins: {
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
+      import: importPlugin,
+      "check-file": checkFile,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -76,5 +80,5 @@ export default tseslint.config(
         },
       ],
     },
-  }
+  },
 );
