@@ -1,16 +1,7 @@
-import NavigationBar from "@/components/layouts/navigation-bar/navigation-bar";
+import AppRouter from "./router";
 
 function App() {
-  return (
-    <>
-      <NavigationBar>
-        <div className="flex flex-col items-center justify-center min-h-screen w-full h-full ">
-          <div>Welcome to your dashboard</div>
-          <div>おはようございます、しずちゃん</div>
-        </div>
-      </NavigationBar>
-    </>
-  );
+  return <AppRouter />;
 }
 
 export default App;

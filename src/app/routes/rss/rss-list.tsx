@@ -1,7 +1,8 @@
 const RssList = () => {
   return (
     <div>
-      <div>RSS List </div>
+      <div>Add New Feed</div>
+      <div>Today's Feeds</div>
     </div>
   );
 };
