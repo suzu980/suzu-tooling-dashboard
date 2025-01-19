@@ -1,3 +1,4 @@
+import { baseColors, borderColors } from "@/config/app-data";
 import { cn } from "@/utils/utils";
 
 type CardProps = {
@@ -18,7 +19,9 @@ export const Card = ({ children, className }: CardProps) => {
   return (
     <div
       className={cn(
-        "bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-600 p-2 rounded-md transition-colors",
+        "border p-2 rounded-md transition-colors",
+        baseColors,
+        borderColors,
         className,
       )}
     >

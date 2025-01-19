@@ -4,6 +4,7 @@ import NavigationBar from "@/components/layouts/navigation-bar/navigation-bar";
 import RssList from "./routes/rss/rss-list";
 import MoodTracker from "./routes/mood-tracker/mood-tracker";
 import StockList from "./routes/stock/stock-list";
+import NotFoundPage from "./routes/not-found";
 
 const AppRouter = () => {
   return (
@@ -14,6 +15,7 @@ const AppRouter = () => {
           <Route path="/rss" element={<RssList />} />
           <Route path="/mood-tracker" element={<MoodTracker />} />
           <Route path="/stock" element={<StockList />} />
+          <Route path="/*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

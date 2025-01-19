@@ -1,3 +1,4 @@
+import { separatorColor } from "@/config/app-data";
 import { cn } from "@/utils/utils";
 
 interface SeparatorProps {
@@ -7,7 +8,8 @@ const Separator = ({ className }: SeparatorProps) => {
   return (
     <div
       className={cn(
-        "w-full h-[1px] bg-gray-200 dark:bg-gray-600 transition-colors",
+        "w-full h-[1px] transition-colors",
+        separatorColor,
         className,
       )}
     ></div>
