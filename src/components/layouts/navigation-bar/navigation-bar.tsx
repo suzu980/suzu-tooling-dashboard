@@ -1,4 +1,4 @@
-import { navItems } from "@/config/appData";
+import { navItems } from "@/config/app-data";
 import NavigationItem from "./navigation-item";
 import { Outlet } from "react-router";
 import { cn } from "@/utils/utils";
