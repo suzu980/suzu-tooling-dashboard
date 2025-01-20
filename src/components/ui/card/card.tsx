@@ -1,4 +1,9 @@
-import { baseColors, borderColors } from "@/config/app-data";
+import {
+  baseColors,
+  borderColors,
+  cardColors,
+  shadowColors,
+} from "@/config/app-data";
 import { cn } from "@/utils/utils";
 
 type CardProps = {
@@ -12,17 +17,18 @@ export const CardDescription = ({ children, className }: CardProps) => {
   return <div className={cn("text-sm", className)}>{children}</div>;
 };
 export const CardTitle = ({ children, className }: CardProps) => {
-  return <div className={cn("text-lg font-medium", className)}>{children}</div>;
+  return <div className={cn("text-lg font-bold", className)}>{children}</div>;
 };
 
 export const Card = ({ children, className }: CardProps) => {
   return (
     <div
       className={cn(
-        "border p-2 rounded-md transition-colors",
-        baseColors,
+        "border-0 p-4 rounded-md transition-colors",
+        shadowColors,
+        cardColors,
         borderColors,
-        className,
+        className
       )}
     >
       {children}

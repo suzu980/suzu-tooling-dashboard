@@ -11,7 +11,7 @@ const RssList = () => {
   return (
     <>
       <StickyAddBtn />
-      <div className="py-1 mx-2 flex flex-col gap-y-1">
+      <div className="py-4 mx-4 flex flex-col gap-y-4">
         {Array.from(Array(20).keys()).map((i) => (
           <Card key={i}>
             <CardTitle>Feed {i}</CardTitle>
