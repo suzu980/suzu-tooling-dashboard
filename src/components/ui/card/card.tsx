@@ -11,10 +11,18 @@ type CardProps = {
   className?: string;
 };
 export const CardSubDescription = ({ children, className }: CardProps) => {
-  return <div className={cn("text-xs opacity-75", className)}>{children}</div>;
+  return (
+    <div className={cn("text-end text-xs opacity-30", className)}>
+      {children}
+    </div>
+  );
 };
 export const CardDescription = ({ children, className }: CardProps) => {
-  return <div className={cn("text-sm", className)}>{children}</div>;
+  return (
+    <div className={cn("text-sm font-normal opacity-60", className)}>
+      {children}
+    </div>
+  );
 };
 export const CardTitle = ({ children, className }: CardProps) => {
   return <div className={cn("text-lg font-bold", className)}>{children}</div>;

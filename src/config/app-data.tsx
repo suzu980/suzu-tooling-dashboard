@@ -1,4 +1,12 @@
-import { ChartLine, House, Radio, Rss, Sun } from "lucide-react";
+import {
+  ChartLine,
+  CloudSun,
+  House,
+  Radio,
+  Rss,
+  Settings,
+  Sun,
+} from "lucide-react";
 import { NavigationItemType } from "@/components/layouts/navigation-bar/types";
 import { cn } from "@/utils/utils";
 
@@ -24,15 +32,20 @@ export const navItems: NavigationItemType[] = [
     path: "stock",
   },
   {
-    label: "Radio",
-    icon: <Radio className="h-5 w-5 sm:h-4 sm:w-4" />,
+    label: "Weather",
+    icon: <CloudSun className="h-5 w-5 sm:h-4 sm:w-4" />,
     path: "radio",
   },
-  //{
-  //  label: "Settings",
-  //  icon: <Settings className="h-5 w-5 sm:h-4 sm:w-4" />,
-  //  path: "",
-  //},
+  // {
+  //   label: "Radio",
+  //   icon: <Radio className="h-5 w-5 sm:h-4 sm:w-4" />,
+  //   path: "radio",
+  // },
+  // {
+  //   label: "Settings",
+  //   icon: <Settings className="h-5 w-5 sm:h-4 sm:w-4" />,
+  //   path: "",
+  // },
 ];
 
 export const baseColors = cn("bg-white", "dark:bg-black");
