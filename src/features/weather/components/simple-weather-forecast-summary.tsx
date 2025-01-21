@@ -4,6 +4,7 @@ import { getWeatherForecast } from "../api/api";
 import { weatherCodes } from "../constants/weather-codes";
 import { jpDay } from "@/config/app-data";
 import { cn } from "@/utils/utils";
+import { motion } from "motion/react";
 
 const SimpleWeatherForecastSummary = () => {
   const locationState = useGeolocation();
@@ -23,17 +24,26 @@ const SimpleWeatherForecastSummary = () => {
   );
   return (
     <div className="flex gap-x-4">
-      {" "}
-      {currentWeatherStatus === "pending" && (
+      {currentWeatherStatus === "pending" && !locationState.error && (
         <div className="h-24 w-full bg-neutral-200 dark:bg-neutral-800 animate-pulse"></div>
+      )}
+      {locationState.error && (
+        <div className="text-sm">No Location Permissions.</div>
       )}
       {currentWeatherData?.daily.weather_code.map((code, idx) => {
         const todayDay = new Date().getDay();
         const day = (+todayDay + +idx) % 7;
         return (
-          <div
+          <motion.div
+            initial={{
+              opacity: 0,
+            }}
+            animate={{
+              opacity: 1,
+            }}
+            transition={{ delay: 0.05 * idx }}
             className={cn(
-              "flex flex-col gap-y-4 items-center px-4 py-4 flex-grow basis-0 min-w-24"
+              "flex flex-col gap-y-4 items-center px-4 py-4 flex-grow basis-0 min-w-20"
             )}
           >
             <div className="font-bold">{jpDay[day]}</div>
@@ -43,7 +53,7 @@ const SimpleWeatherForecastSummary = () => {
               )}
               src={weatherCodes[code].day.image}
             />
-          </div>
+          </motion.div>
         );
       })}
     </div>
