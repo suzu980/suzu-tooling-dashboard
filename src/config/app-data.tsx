@@ -1,14 +1,7 @@
-import {
-  ChartLine,
-  CloudSun,
-  House,
-  Radio,
-  Rss,
-  Settings,
-  Sun,
-} from "lucide-react";
+import { ChartLine, CloudSun, House, Rss, Sun } from "lucide-react";
 import { NavigationItemType } from "@/components/layouts/navigation-bar/types";
 import { cn } from "@/utils/utils";
+import { QueryClientConfig } from "@tanstack/react-query";
 
 export const navItems: NavigationItemType[] = [
   {
@@ -34,19 +27,23 @@ export const navItems: NavigationItemType[] = [
   {
     label: "Weather",
     icon: <CloudSun className="h-5 w-5 sm:h-4 sm:w-4" />,
-    path: "radio",
+    path: "weather",
   },
-  // {
-  //   label: "Radio",
-  //   icon: <Radio className="h-5 w-5 sm:h-4 sm:w-4" />,
-  //   path: "radio",
-  // },
-  // {
-  //   label: "Settings",
-  //   icon: <Settings className="h-5 w-5 sm:h-4 sm:w-4" />,
-  //   path: "",
-  // },
 ];
+
+export const queryDefaultOptions: QueryClientConfig = {
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: false,
+      staleTime: Infinity,
+      refetchInterval: false,
+      refetchOnMount: false,
+      retryOnMount: false,
+      retry: false,
+    },
+  },
+};
 
 export const baseColors = cn("bg-white", "dark:bg-black");
 export const cardColors = cn("bg-white", "dark:bg-black");

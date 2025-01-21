@@ -29,7 +29,7 @@ const client = axios.create();
 
 export const externalRequest = async (options: AxiosRequestConfig) => {
   const onSuccess = (response: AxiosResponse) => {
-    return response?.data?.data;
+    return response.data;
   };
 
   const onError = (error: AxiosError) => {
