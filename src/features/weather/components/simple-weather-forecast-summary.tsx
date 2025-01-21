@@ -2,7 +2,7 @@ import { useApiGet } from "@/hooks/use-api";
 import { useGeolocation } from "@/hooks/use-geolocation";
 import { getWeatherForecast } from "../api/api";
 import { weatherCodes } from "../constants/weather-codes";
-import { jpDay } from "@/config/app-data";
+import { borderColors, jpDay, shadowColors } from "@/config/app-data";
 import { cn } from "@/utils/utils";
 import { motion } from "motion/react";
 
@@ -23,7 +23,7 @@ const SimpleWeatherForecastSummary = () => {
     }
   );
   return (
-    <div className="flex gap-x-4">
+    <div className="flex gap-x-4 justify-start lg:justify-center">
       {currentWeatherStatus === "pending" && !locationState.error && (
         <div className="h-24 w-full bg-neutral-200 dark:bg-neutral-800 animate-pulse"></div>
       )}
@@ -43,7 +43,7 @@ const SimpleWeatherForecastSummary = () => {
             }}
             transition={{ delay: 0.05 * idx }}
             className={cn(
-              "flex flex-col gap-y-4 items-center px-4 py-4 flex-grow basis-0 min-w-20"
+              "flex flex-col gap-y-4 items-center justify-between px-4 py-4 min-w-20 h-48 my-2"
             )}
           >
             <div className="font-bold">{jpDay[day]}</div>
