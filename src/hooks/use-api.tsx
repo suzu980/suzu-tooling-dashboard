@@ -8,7 +8,7 @@ import {
 export const useApiGet = (
   key: QueryKey,
   fn: QueryFunction,
-  options: UseQueryOptions
+  options: Omit<UseQueryOptions, "queryKey" | "queryFn">,
 ) =>
   useQuery({
     ...options,
