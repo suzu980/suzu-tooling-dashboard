@@ -4,14 +4,11 @@ import { useGeolocation } from "@/hooks/use-geolocation";
 import { cn } from "@/utils/utils";
 import { getWeatherForecast } from "../api/api";
 import { weatherCodes } from "../constants/weather-codes";
-import useDarkMode from "@/hooks/use-dark-mode";
-import { shadowColors } from "@/config/app-data";
 
 interface DashboardWeatherCardProps {
   className?: string;
 }
 const DashboardWeatherCard = ({ className }: DashboardWeatherCardProps) => {
-  const { dark } = useDarkMode();
   const locationState = useGeolocation();
   const { data: currentWeatherData, status: currentWeatherStatus } = useApiGet(
     ["currentWeather"],
@@ -20,7 +17,7 @@ const DashboardWeatherCard = ({ className }: DashboardWeatherCardProps) => {
         latitude: locationState.latitude?.toString() ?? "",
         longitude: locationState.longitude?.toString() ?? "",
         daily: "weather_code",
-        timezone: "Asia/Singapore",
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
       }),
     {
       enabled:
@@ -47,14 +44,15 @@ const DashboardWeatherCard = ({ className }: DashboardWeatherCardProps) => {
           {currentWeatherStatus === "pending" ? (
             <div className="h-24 w-24 bg-neutral-200 dark:bg-neutral-800 animate-pulse rounded-full"></div>
           ) : currentWeatherData?.daily.weather_code[0] ? (
-            <img
-              className={cn("h-24 w-24 rounded-full", shadowColors)}
-              src={
-                weatherCodes[currentWeatherData.daily.weather_code[0]][
-                  dark ? "night" : "day"
-                ].image
-              }
-            />
+            <div className="h-full w-full bg-sky-300 dark:bg-sky-900 mt-2 rounded-lg flex justify-center items-center ">
+              <img
+                className={cn("h-24 w-24 rounded-full")}
+                src={
+                  weatherCodes[currentWeatherData.daily.weather_code[0]].day
+                    .image
+                }
+              />
+            </div>
           ) : (
             <div></div>
           )}
