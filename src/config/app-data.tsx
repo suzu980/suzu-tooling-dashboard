@@ -45,10 +45,12 @@ export const queryDefaultOptions: QueryClientConfig = {
   },
 };
 
+export const jpDay = ["日", "月", "火", "水", "木", "金", "土"];
+
 export const baseColors = cn("bg-white", "dark:bg-black");
 export const cardColors = cn("bg-white", "dark:bg-black");
 export const shadowColors = cn(
-  "shadow-md shadow-neutral-200 dark:shadow-black"
+  "shadow-md shadow-neutral-200 dark:shadow-black",
 );
 export const buttonColors = cn("bg-gray-200", "dark:bg-neutral-800");
 export const textColors = cn("text-black", "dark:text-white");

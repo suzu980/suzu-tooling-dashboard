@@ -5,9 +5,9 @@ import {
   CardTitle,
 } from "@/components/ui/card/card";
 import Separator from "@/components/ui/separator/separator";
+import { jpDay } from "@/config/app-data";
 import DashboardWeatherCard from "@/features/weather/components/dashboard-weather-card";
 
-const jpDay = ["日", "月", "火", "水", "木", "金", "土"];
 const Welcome = () => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4 mx-4 py-4">
