@@ -2,7 +2,7 @@ import { useApiGet } from "@/hooks/use-api";
 import { useGeolocation } from "@/hooks/use-geolocation";
 import { getWeatherForecast } from "../api/api";
 import { weatherCodes } from "../constants/weather-codes";
-import { borderColors, jpDay, shadowColors } from "@/config/app-data";
+import { jpDay } from "@/config/app-data";
 import { cn } from "@/utils/utils";
 import { motion } from "motion/react";
 

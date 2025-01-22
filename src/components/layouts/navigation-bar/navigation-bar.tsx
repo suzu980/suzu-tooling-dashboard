@@ -1,7 +1,6 @@
 import {
   baseColors,
   bgColors,
-  borderColors,
   buttonColors,
   navItems,
   textColors,
