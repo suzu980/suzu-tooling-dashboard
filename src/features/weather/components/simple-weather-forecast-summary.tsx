@@ -25,7 +25,7 @@ const SimpleWeatherForecastSummary = () => {
   return (
     <div className="flex gap-x-4 justify-start lg:justify-center">
       {currentWeatherStatus === "pending" && !locationState.error && (
-        <div className="h-24 w-full bg-neutral-200 dark:bg-neutral-800 animate-pulse"></div>
+        <div className="h-48 w-full bg-neutral-200 dark:bg-neutral-800 animate-pulse"></div>
       )}
       {locationState.error && (
         <div className="text-sm">No Location Permissions.</div>

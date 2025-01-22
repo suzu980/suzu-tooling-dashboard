@@ -26,11 +26,14 @@ const DashboardWeatherCard = ({ className }: DashboardWeatherCardProps) => {
   );
   return (
     <Card className={cn(className)}>
-      {locationState.loading && <CardDescription>Weather</CardDescription>}
+      {locationState.loading && currentWeatherData === undefined && (
+        <CardDescription>Fetching location...</CardDescription>
+      )}
       {locationState.error && (
         <CardDescription>No location Access</CardDescription>
       )}
-      {!locationState.loading && !locationState.error && (
+      {((!locationState.loading && !locationState.error) ||
+        currentWeatherData !== undefined) && (
         <CardDescription>Weather</CardDescription>
       )}
       <CardTitle>
@@ -40,24 +43,23 @@ const DashboardWeatherCard = ({ className }: DashboardWeatherCardProps) => {
           ? weatherCodes[currentWeatherData.daily.weather_code[0]].day
               .description
           : "No Data"}
-        <div className="flex justify-center">
-          {currentWeatherStatus === "pending" && !locationState.error ? (
-            <div className="h-24 w-24 bg-neutral-200 dark:bg-neutral-800 animate-pulse rounded-full"></div>
-          ) : currentWeatherData?.daily.weather_code[0] ? (
-            <div className="h-full w-full bg-sky-300 dark:bg-sky-900 mt-2 rounded-lg flex justify-center items-center ">
-              <img
-                className={cn("h-24 w-24 rounded-full")}
-                src={
-                  weatherCodes[currentWeatherData.daily.weather_code[0]].day
-                    .image
-                }
-              />
-            </div>
-          ) : (
-            <div></div>
-          )}
-        </div>
       </CardTitle>
+      <div className="flex justify-center">
+        {currentWeatherStatus === "pending" && !locationState.error ? (
+          <div className="h-24 w-24 bg-neutral-200 dark:bg-neutral-800 animate-pulse rounded-full"></div>
+        ) : currentWeatherData?.daily.weather_code[0] ? (
+          <div className="h-full w-full bg-sky-300 dark:bg-sky-900 mt-2 rounded-lg flex justify-center items-center ">
+            <img
+              className={cn("h-24 w-24 rounded-full")}
+              src={
+                weatherCodes[currentWeatherData.daily.weather_code[0]].day.image
+              }
+            />
+          </div>
+        ) : (
+          <div></div>
+        )}
+      </div>
     </Card>
   );
 };

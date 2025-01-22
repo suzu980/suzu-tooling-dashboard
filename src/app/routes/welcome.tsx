@@ -19,7 +19,7 @@ const Welcome = () => {
         </Card>
         <div className="col-span-2 grid grid-cols-2 sm:grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-4">
           <NavLink to={"weather"}>
-            <DashboardWeatherCard className="col-span-1 sm:col-span-1 opacity-100 hover:opacity-80 transition-opacity cursor-pointer duration-500" />
+            <DashboardWeatherCard className="col-span-1 sm:col-span-1 opacity-100 cursor-pointer" />
           </NavLink>
           <Card className="col-span-1 sm:col-span-1">
             <CardDescription>Day</CardDescription>
