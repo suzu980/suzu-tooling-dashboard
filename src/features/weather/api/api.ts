@@ -1,7 +1,7 @@
-import { MeteoForecast } from "@/components/layouts/navigation-bar/types";
 import { externalRequest } from "@/config/constants";
 import { URLParamType } from "@/types/types";
 import { getApiUrl } from "@/utils/utils";
+import { MeteoForecast } from "../types";
 
 type getWeatherForecastFn = (params: URLParamType) => Promise<MeteoForecast>;
 

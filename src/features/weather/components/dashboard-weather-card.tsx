@@ -16,7 +16,7 @@ const DashboardWeatherCard = ({ className }: DashboardWeatherCardProps) => {
       await getWeatherForecast({
         latitude: locationState.latitude?.toString() ?? "",
         longitude: locationState.longitude?.toString() ?? "",
-        daily: "weather_code",
+        daily: "weather_code,temperature_2m_max,temperature_2m_min",
         timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
       }),
     {
@@ -44,6 +44,16 @@ const DashboardWeatherCard = ({ className }: DashboardWeatherCardProps) => {
               .description
           : "No Data"}
       </CardTitle>
+      <div className="flex gap-x-4">
+        <div>
+          {currentWeatherData?.daily.temperature_2m_max[0] ?? "No Data"}
+          {currentWeatherData?.daily_units.temperature_2m_max ?? ""}
+        </div>
+        <div className="opacity-50">
+          {currentWeatherData?.daily.temperature_2m_min[0] ?? "No Data"}
+          {currentWeatherData?.daily_units.temperature_2m_min ?? ""}
+        </div>
+      </div>
       <div className="flex justify-center">
         {currentWeatherStatus === "pending" && !locationState.error ? (
           <div className="h-24 w-24 bg-neutral-200 dark:bg-neutral-800 animate-pulse rounded-full"></div>
