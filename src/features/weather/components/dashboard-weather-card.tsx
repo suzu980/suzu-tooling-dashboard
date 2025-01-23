@@ -4,6 +4,7 @@ import { useGeolocation } from "@/hooks/use-geolocation";
 import { cn } from "@/utils/utils";
 import { getWeatherForecast } from "../api/api";
 import { weatherCodes } from "../constants/weather-codes";
+import { motion } from "motion/react";
 
 interface DashboardWeatherCardProps {
   className?: string;
@@ -46,15 +47,20 @@ const DashboardWeatherCard = ({ className }: DashboardWeatherCardProps) => {
       </CardTitle>
       <div className="flex gap-x-4">
         <div>
-          {currentWeatherData?.daily.temperature_2m_max[0] ?? "No Data"}
+          {currentWeatherData?.daily.temperature_2m_max[0] ?? "-"}
           {currentWeatherData?.daily_units.temperature_2m_max ?? ""}
         </div>
         <div className="opacity-50">
-          {currentWeatherData?.daily.temperature_2m_min[0] ?? "No Data"}
+          {currentWeatherData?.daily.temperature_2m_min[0] ?? "-"}
           {currentWeatherData?.daily_units.temperature_2m_min ?? ""}
         </div>
       </div>
-      <div className="flex justify-center">
+      <motion.div
+        className="flex justify-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+      >
         {currentWeatherStatus === "pending" && !locationState.error ? (
           <div className="h-24 w-24 bg-neutral-200 dark:bg-neutral-800 animate-pulse rounded-full"></div>
         ) : currentWeatherData?.daily.weather_code[0] ? (
@@ -69,7 +75,7 @@ const DashboardWeatherCard = ({ className }: DashboardWeatherCardProps) => {
         ) : (
           <div></div>
         )}
-      </div>
+      </motion.div>
     </Card>
   );
 };

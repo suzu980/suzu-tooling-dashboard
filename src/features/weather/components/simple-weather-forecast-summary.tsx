@@ -23,7 +23,7 @@ const SimpleWeatherForecastSummary = () => {
     }
   );
   return (
-    <div className="flex gap-x-4 justify-start lg:justify-center">
+    <div className="flex flex-col gap-x-4 justify-start lg:justify-center">
       {currentWeatherStatus === "pending" && !locationState.error && (
         <div className="h-52 w-full bg-neutral-200 dark:bg-neutral-800 animate-pulse"></div>
       )}
@@ -43,15 +43,15 @@ const SimpleWeatherForecastSummary = () => {
             }}
             transition={{ delay: 0.05 * idx }}
             className={cn(
-              "flex flex-col gap-y-4 items-center justify-between px-4 py-4 min-w-16 h-48 my-2 select-none"
+              "flex flex-row gap-x-2 items-center justify-center my-2 select-none"
             )}
           >
-            <div className="font-bold">{jpDay[day]}</div>
-            <div className="text-sm">
+            <div className="font-bold w-8 text-center">{jpDay[day]}</div>
+            <div className="text-sm w-16 text-center">
               {currentWeatherData?.daily.temperature_2m_max[idx] ?? "No Data"}
               {currentWeatherData?.daily_units.temperature_2m_max ?? ""}
             </div>
-            <div className="opacity-50 text-sm">
+            <div className="opacity-50 w-16 text-center text-sm">
               {currentWeatherData?.daily.temperature_2m_min[idx] ?? "No Data"}
               {currentWeatherData?.daily_units.temperature_2m_min ?? ""}
             </div>

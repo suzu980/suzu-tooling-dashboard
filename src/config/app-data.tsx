@@ -7,7 +7,7 @@ export const navItems: NavigationItemType[] = [
   {
     label: "Dashboard",
     icon: <House className="h-5 w-5 sm:h-4 sm:w-4" />,
-    path: "",
+    path: "dashboard",
   },
   {
     label: "RSS",

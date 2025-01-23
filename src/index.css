@@ -9,3 +9,13 @@
 .recharts-legend-item-text {
   @apply text-sm;
 }
+
+input[type="email"] {
+  @apply p-2 border rounded-md text-sm;
+}
+input[type="password"] {
+  @apply p-2 border rounded-md text-sm;
+}
+button[type="submit"] {
+  @apply bg-black text-white p-3 rounded-md hover:bg-neutral-700 transition-colors duration-200;
+}
