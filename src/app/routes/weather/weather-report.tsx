@@ -1,6 +1,7 @@
 import { Card, CardDescription, CardTitle } from "@/components/ui/card/card";
 import Separator from "@/components/ui/separator/separator";
 import SimpleWeatherForecastSummary from "@/features/weather/components/simple-weather-forecast-summary";
+import WeatherForecastChart from "@/features/weather/components/weather-forecast-chart";
 
 const WeatherReport = () => {
   return (
@@ -16,9 +17,10 @@ const WeatherReport = () => {
       </Card>
       <Card>
         <CardDescription>
-          Detailed Weather forecast for the next 7 days
+          Detailed Weather forecast for the next 14 days
         </CardDescription>
-        <Separator className="my-2" />
+        <Separator />
+        <WeatherForecastChart />
       </Card>
     </div>
   );

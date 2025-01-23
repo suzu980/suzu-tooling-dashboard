@@ -43,21 +43,21 @@ const SimpleWeatherForecastSummary = () => {
             }}
             transition={{ delay: 0.05 * idx }}
             className={cn(
-              "flex flex-col gap-y-4 items-center justify-between px-4 py-4 min-w-24 h-52 my-2 select-none"
+              "flex flex-col gap-y-4 items-center justify-between px-4 py-4 min-w-16 h-48 my-2 select-none"
             )}
           >
             <div className="font-bold">{jpDay[day]}</div>
-            <div className="">
+            <div className="text-sm">
               {currentWeatherData?.daily.temperature_2m_max[idx] ?? "No Data"}
               {currentWeatherData?.daily_units.temperature_2m_max ?? ""}
             </div>
-            <div className="opacity-50">
+            <div className="opacity-50 text-sm">
               {currentWeatherData?.daily.temperature_2m_min[idx] ?? "No Data"}
               {currentWeatherData?.daily_units.temperature_2m_min ?? ""}
             </div>
             <img
               className={cn(
-                "h-12 w-12 min-h-12 min-w-12 max-h-12 max-w-12 aspect-square bg-sky-300 dark:bg-sky-900 rounded-full"
+                "h-10 w-10 min-h-10 min-w-10 max-h-10 max-w-10 aspect-square bg-sky-300 dark:bg-sky-900 rounded-full"
               )}
               src={weatherCodes[code].day.image}
             />
