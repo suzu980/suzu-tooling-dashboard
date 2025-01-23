@@ -1,4 +1,4 @@
-import { CloudSun, House, Rss, Sun } from "lucide-react";
+import { CloudSun, House, Rss } from "lucide-react";
 import { NavigationItemType } from "@/components/layouts/navigation-bar/types";
 import { cn } from "@/utils/utils";
 import { QueryClientConfig } from "@tanstack/react-query";
@@ -13,11 +13,6 @@ export const navItems: NavigationItemType[] = [
     label: "RSS",
     icon: <Rss className="h-5 w-5 sm:h-4 sm:w-4" />,
     path: "rss",
-  },
-  {
-    label: "Mood",
-    icon: <Sun className="h-5 w-5 sm:h-4 sm:w-4" />,
-    path: "mood-tracker",
   },
   {
     label: "Weather",

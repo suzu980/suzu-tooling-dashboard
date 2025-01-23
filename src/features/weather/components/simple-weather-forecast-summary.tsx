@@ -35,6 +35,7 @@ const SimpleWeatherForecastSummary = () => {
         const day = (+todayDay + +idx) % 7;
         return (
           <motion.div
+            key={idx}
             initial={{
               opacity: 0,
             }}

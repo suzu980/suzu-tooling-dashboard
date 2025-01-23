@@ -38,3 +38,16 @@ export const externalRequest = async (options: AxiosRequestConfig) => {
 
   return client(options).then(onSuccess).catch(onError);
 };
+
+export const routes = {
+  users: {
+    authWithPassword:
+      "http://127.0.0.1:8090/api/collections/users/auth-with-password",
+  },
+  weather: {
+    weatherForecast: "https://api.open-meteo.com/v1/forecast",
+  },
+  radio: {
+    radioList: "http://127.0.0.1:8090/api/collections/radio_list/records",
+  },
+};

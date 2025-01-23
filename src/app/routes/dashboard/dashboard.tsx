@@ -1,11 +1,7 @@
-import {
-  Card,
-  CardDescription,
-  CardSubDescription,
-  CardTitle,
-} from "@/components/ui/card/card";
+import { Card, CardDescription, CardTitle } from "@/components/ui/card/card";
 import Separator from "@/components/ui/separator/separator";
 import { jpDay } from "@/config/app-data";
+import RadioList from "@/features/radio/components/radio-list";
 import DashboardWeatherCard from "@/features/weather/components/dashboard-weather-card";
 import { NavLink } from "react-router";
 
@@ -27,19 +23,11 @@ const Welcome = () => {
           </Card>
         </div>
       </div>
-      <Card className="col-span-1 sm:col-span-2">
-        <CardTitle>Latest RSS Feeds</CardTitle>
+      <Card className="col-span-2">
+        <CardTitle>Radio</CardTitle>
         <Separator />
-      </Card>
-      <Card>
-        <CardTitle>Mood Trend</CardTitle>
-        <Separator />
-        <CardDescription>Mood trend for the past 7 days</CardDescription>
-        <CardSubDescription>Last updated:</CardSubDescription>
-      </Card>
-      <Card>
-        <CardTitle>Stock Watchlist</CardTitle>
-        <Separator />
+        <CardDescription>List of Radios</CardDescription>
+        <RadioList />
       </Card>
     </div>
   );

@@ -1,6 +1,7 @@
 import { Card, CardDescription, CardTitle } from "@/components/ui/card/card";
 import Separator from "@/components/ui/separator/separator";
 import { bgColors, textColors } from "@/config/app-data";
+import LoginForm from "@/features/auth/components/forms/login";
 import { cn } from "@/utils/utils";
 import { useNavigate } from "react-router";
 
@@ -18,19 +19,7 @@ const LandingPage = () => {
         <CardTitle>Login</CardTitle>
         <Separator className="my-2" />
         <CardDescription>Login to your account</CardDescription>
-        <form className="flex flex-col my-4 gap-y-2">
-          <input type="email" placeholder="User@email.com" />
-          <input type="password" placeholder="Your password..." />
-          <button
-            type="submit"
-            onClick={(e) => {
-              e.preventDefault();
-              navigate("dashboard");
-            }}
-          >
-            Login
-          </button>
-        </form>
+        <LoginForm />
       </Card>
     </div>
   );

@@ -6,10 +6,11 @@ import {
   textColors,
 } from "@/config/app-data";
 import NavigationItem from "./navigation-item";
-import { Outlet } from "react-router";
 import { cn } from "@/utils/utils";
 import { Moon, Sun } from "lucide-react";
 import useDarkMode from "@/hooks/use-dark-mode";
+import RadioPlayer from "@/features/radio/components/radio-player";
+import AnimatedOutlet from "../animated-outlet";
 const NavigationBar = () => {
   const { dark, toggleDarkMode } = useDarkMode();
   return (
@@ -38,13 +39,17 @@ const NavigationBar = () => {
       >
         <div
           className={cn(
-            "dark:bg-gray-900 p-2 rounded-full transition-colors",
+            "dark:bg-gray-900 p-2 rounded-full transition-colors mr-2",
             buttonColors
           )}
           onClick={() => toggleDarkMode()}
         >
           {dark ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
         </div>
+        <RadioPlayer
+          className="gap-y-0 w-full rounded-lg overflow-hidden"
+          playerOnly
+        />
       </div>
       <div
         className={cn(
@@ -57,7 +62,7 @@ const NavigationBar = () => {
           "overflow-y-auto"
         )}
       >
-        <Outlet />
+        <AnimatedOutlet />
       </div>
     </>
   );
