@@ -1,4 +1,4 @@
-import { ChartLine, CloudSun, House, Rss, Sun } from "lucide-react";
+import { CloudSun, House, Rss, Sun } from "lucide-react";
 import { NavigationItemType } from "@/components/layouts/navigation-bar/types";
 import { cn } from "@/utils/utils";
 import { QueryClientConfig } from "@tanstack/react-query";
@@ -18,11 +18,6 @@ export const navItems: NavigationItemType[] = [
     label: "Mood",
     icon: <Sun className="h-5 w-5 sm:h-4 sm:w-4" />,
     path: "mood-tracker",
-  },
-  {
-    label: "Stock",
-    icon: <ChartLine className="h-5 w-5 sm:h-4 sm:w-4" />,
-    path: "stock",
   },
   {
     label: "Weather",
@@ -50,7 +45,7 @@ export const jpDay = ["日", "月", "火", "水", "木", "金", "土"];
 export const baseColors = cn("bg-white", "dark:bg-black");
 export const cardColors = cn("bg-white", "dark:bg-black");
 export const shadowColors = cn(
-  "shadow-md shadow-neutral-200 dark:shadow-black",
+  "shadow-md shadow-neutral-200 dark:shadow-black"
 );
 export const buttonColors = cn("bg-gray-200", "dark:bg-neutral-800");
 export const textColors = cn("text-black", "dark:text-white");

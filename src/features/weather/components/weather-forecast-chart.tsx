@@ -2,6 +2,7 @@ import { useApiGet } from "@/hooks/use-api";
 import { useGeolocation } from "@/hooks/use-geolocation";
 import { getWeatherForecast } from "../api/api";
 import {
+  Label,
   Legend,
   Line,
   LineChart,
@@ -60,18 +61,14 @@ const WeatherForecastChart = () => {
       {currentWeatherData !== undefined && (
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
-            width={500}
             data={processedData}
-            height={300}
             margin={{
-              top: 5,
-              right: 50,
-              left: 0,
-              bottom: 5,
+              right: 30,
+              left: -30,
             }}
           >
             <XAxis dataKey="time" fontSize={12} />
-            <YAxis fontSize={12} />
+            <YAxis fontSize={12}></YAxis>
             <Line
               type="monotone"
               dataKey="minTemps"
