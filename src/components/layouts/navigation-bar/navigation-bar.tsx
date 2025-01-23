@@ -19,7 +19,8 @@ const NavigationBar = () => {
           "fixed bottom-0 sm:right-0 sm:bottom-auto w-screen sm:w-40 h-20 sm:h-screen flex flex-row sm:flex-col sm:gap-y-1 px-2 py-2 sm:px-1 sm:py-1 gap-x-2 sm:gap-x-0",
           baseColors,
           textColors,
-          "transition-colors"
+          "transition-colors",
+          "z-10"
         )}
       >
         {navItems.map((navItem, idx) => {
@@ -31,7 +32,8 @@ const NavigationBar = () => {
           "fixed top-0 h-14 w-screen flex items-center justify-start px-2",
           baseColors,
           textColors,
-          "transition-colors"
+          "transition-colors",
+          "z-10"
         )}
       >
         <div
