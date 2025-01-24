@@ -30,7 +30,7 @@ const NavigationBar = () => {
       </nav>
       <div
         className={cn(
-          "fixed top-0 h-14 w-screen flex items-center justify-start px-2",
+          "fixed top-0 h-14 w-screen flex items-center justify-between px-2",
           baseColors,
           textColors,
           "transition-colors",
@@ -47,9 +47,10 @@ const NavigationBar = () => {
           {dark ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
         </div>
         <RadioPlayer
-          className="gap-y-0 w-full rounded-lg overflow-hidden"
+          className="gap-y-0 w-38 rounded-lg overflow-hidden flex flex-row items-center text-sm gap-x-2"
           playerOnly
         />
+        <div className="w-9 h-9 bg-blue-500 rounded-full"></div>
       </div>
       <div
         className={cn(
