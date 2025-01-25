@@ -6,8 +6,8 @@ import DashboardWeatherCard from "@/features/weather/components/dashboard-weathe
 
 const Welcome = () => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-4 mx-4 py-4">
-      <Card className="col-span-1 sm:col-span-2 grid grid-cols-2 gap-x-4">
+    <div className="grid grid-cols-1 gap-x-4 gap-y-4 mx-4 py-4">
+      <Card className="col-span-1 grid grid-cols-2 gap-x-4">
         <div>
           <CardDescription>おはようございます</CardDescription>
           <CardTitle className="text-2xl">しずちゃん</CardTitle>
@@ -17,8 +17,8 @@ const Welcome = () => {
           <CardTitle>{jpDay[new Date().getDay()]}曜日</CardTitle>
         </div>
       </Card>
-      <DashboardWeatherCard className="col-span-1 sm:col-span-2 opacity-100" />
-      <Card className="col-span-2">
+      <DashboardWeatherCard className="col-span-1 opacity-100" />
+      <Card className="col-span-1">
         <CardTitle>Radio</CardTitle>
         <Separator />
         <CardDescription>List of Radios</CardDescription>

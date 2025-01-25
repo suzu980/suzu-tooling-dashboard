@@ -62,9 +62,9 @@ const DashboardWeatherCard = ({ className }: DashboardWeatherCardProps) => {
         exit={{ opacity: 0 }}
       >
         {currentWeatherStatus === "pending" && !locationState.error ? (
-          <div className="h-24 w-24 bg-neutral-200 dark:bg-neutral-800 animate-pulse rounded-full"></div>
+          <div className="h-24 w-full bg-neutral-200 dark:bg-neutral-800 animate-pulse"></div>
         ) : currentWeatherData?.daily.weather_code[0] ? (
-          <div className="h-full w-full bg-sky-300 dark:bg-sky-900 mt-2 rounded-lg flex justify-center items-center ">
+          <div className="h-full w-full py-4 bg-sky-300 dark:bg-sky-900 mt-2 rounded-lg flex justify-center items-center ">
             <img
               className={cn("h-24 w-24 rounded-full")}
               src={

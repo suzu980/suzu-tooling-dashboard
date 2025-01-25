@@ -1,7 +1,9 @@
 import { useNavigate } from "react-router";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { authWithPassword } from "../../api/api";
-import { useLocalStorage } from "@/hooks/use-local-storage";
+import { localStorageKeys } from "@/config/constants";
+import toast from "react-hot-toast";
+import DarkModeToggle from "@/components/ui/dark-mode-toggle/nav-dark-mode-toggle";
 
 type LoginFormInputs = {
   username: string;
@@ -9,22 +11,28 @@ type LoginFormInputs = {
 };
 const LoginForm = () => {
   const navigate = useNavigate();
-  const [value, setValue] = useLocalStorage<string | null>(
-    "userAuthToken",
-    null
-  );
-  console.log(value);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginFormInputs>();
   const onSubmit: SubmitHandler<LoginFormInputs> = (data) => {
-    authWithPassword({ identity: data.username, password: data.password })
+    const tryAuth = authWithPassword({
+      identity: data.username,
+      password: data.password,
+    });
+    toast.promise(tryAuth, {
+      loading: "Logging in",
+      success: (data) => `Welcome back ${data.record.name}!`,
+      error: (err) => err.message,
+    });
+    tryAuth
       .then((responseData) => {
-        console.log(responseData);
-        setValue(responseData.token);
-        navigate("dashboard");
+        localStorage.setItem(
+          localStorageKeys.auth.authToken,
+          responseData.token
+        );
+        navigate("/dashboard");
       })
       .catch((err) => {
         console.error(err);
@@ -53,6 +61,9 @@ const LoginForm = () => {
         <span className="text-sm text-red-500">Password is required</span>
       )}
       <button type="submit">Login</button>
+      <div className="flex justify-end">
+        <DarkModeToggle className="mt-4 cursor-pointer" />
+      </div>
     </form>
   );
 };

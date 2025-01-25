@@ -22,11 +22,12 @@ const RadioPlayer = ({
       )}
       <audio
         ref={audioRef}
-        controls
-        autoPlay
-        className="invert saturate-0 dark:invert-0 transition-all"
+        controls={true}
+        autoPlay={true}
+        src={currentlyPlaying?.url ?? undefined}
+        className="invert saturate-0 dark:invert-0 transition-all w-full"
       >
-        <source src={currentlyPlaying?.url ?? ""} />
+        <source />
       </audio>
     </div>
   );

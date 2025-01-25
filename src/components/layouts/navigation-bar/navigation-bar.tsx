@@ -2,17 +2,20 @@ import {
   baseColors,
   bgColors,
   buttonColors,
+  hoverColors,
   navItems,
   textColors,
 } from "@/config/app-data";
 import NavigationItem from "./navigation-item";
 import { cn } from "@/utils/utils";
-import { Moon, Sun } from "lucide-react";
-import useDarkMode from "@/hooks/use-dark-mode";
 import RadioPlayer from "@/features/radio/components/radio-player";
 import AnimatedOutlet from "../animated-outlet";
+import { useNavigate } from "react-router";
+import { localStorageKeys } from "@/config/constants";
+import DarkModeToggle from "@/components/ui/dark-mode-toggle/nav-dark-mode-toggle";
+import { LogOut } from "lucide-react";
 const NavigationBar = () => {
-  const { dark, toggleDarkMode } = useDarkMode();
+  const navigate = useNavigate();
   return (
     <>
       <nav
@@ -39,18 +42,22 @@ const NavigationBar = () => {
       >
         <div
           className={cn(
-            "dark:bg-gray-900 p-2 rounded-full transition-colors mr-2",
-            buttonColors
+            "w-fit px-4 py-3 bg-blue-500 rounded-lg cursor-pointer transition-colors",
+            buttonColors,
+            hoverColors
           )}
-          onClick={() => toggleDarkMode()}
+          onClick={() => {
+            localStorage.removeItem(localStorageKeys.auth.authToken);
+            navigate("/");
+          }}
         >
-          {dark ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+          <LogOut className="w-5 h-5" />
         </div>
         <RadioPlayer
           className="gap-y-0 w-38 rounded-lg overflow-hidden flex flex-row items-center text-sm gap-x-2"
           playerOnly
         />
-        <div className="w-9 h-9 bg-blue-500 rounded-full"></div>
+        <DarkModeToggle className="cursor-pointer" />
       </div>
       <div
         className={cn(

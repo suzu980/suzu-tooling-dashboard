@@ -11,11 +11,11 @@
 }
 
 input[type="email"] {
-  @apply p-2 border rounded-md text-sm;
+  @apply p-2 border-b text-sm bg-white dark:bg-black dark:border-b-neutral-700 transition-colors;
 }
 input[type="password"] {
-  @apply p-2 border rounded-md text-sm;
+  @apply p-2 border-b text-sm bg-white dark:bg-black dark:border-b-neutral-700 transition-colors;
 }
 button[type="submit"] {
-  @apply bg-black text-white p-3 rounded-md hover:bg-neutral-700 transition-colors duration-200;
+  @apply bg-black text-white p-3 rounded-md hover:bg-neutral-700 transition-colors duration-200 dark:bg-neutral-100 dark:text-black dark:hover:bg-neutral-300;
 }

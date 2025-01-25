@@ -42,11 +42,11 @@ export const cardColors = cn("bg-white", "dark:bg-black");
 export const shadowColors = cn(
   "shadow-md shadow-neutral-200 dark:shadow-black"
 );
-export const buttonColors = cn("bg-gray-200", "dark:bg-neutral-800");
+export const buttonColors = cn("bg-neutral-200", "dark:bg-neutral-800");
 export const textColors = cn("text-black", "dark:text-white");
 export const bgColors = "bg-neutral-100 dark:bg-neutral-800";
 export const borderColors = "border-neutral-200 dark:border-neutral-600";
 export const separatorColor = "bg-gray-200 dark:bg-neutral-600";
-export const hoverColors = "hover:bg-gray-100 hover:text-gray-900";
+export const hoverColors = "hover:bg-neutral-100 hover:text-gray-900";
 export const groupHoverColors = "group-hover:text-neutral-900";
-export const activeColors = "bg-gray-200 dark:bg-neutral-800";
+export const activeColors = "bg-neutral-200 dark:bg-neutral-800";
