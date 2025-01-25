@@ -12,6 +12,7 @@ import {
   YAxis,
 } from "recharts";
 import { useMemo } from "react";
+import SkeletonRectangle from "@/components/ui/skeletons/skeleton-rectangle";
 
 const WeatherForecastChart = () => {
   const locationState = useGeolocation();
@@ -53,7 +54,7 @@ const WeatherForecastChart = () => {
   return (
     <div className="flex gap-x-4 justify-start lg:justify-center h-52 w-full p-4">
       {currentWeatherStatus === "pending" && !locationState.error && (
-        <div className="h-24 w-full bg-neutral-200 dark:bg-neutral-800 animate-pulse"></div>
+        <SkeletonRectangle />
       )}
       {locationState.error && (
         <div className="text-sm">No Location Permissions.</div>

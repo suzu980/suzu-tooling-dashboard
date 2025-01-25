@@ -1,6 +1,7 @@
 import { Card, CardDescription, CardTitle } from "@/components/ui/card/card";
 import Separator from "@/components/ui/separator/separator";
 import { jpDay } from "@/config/app-data";
+import { getAuthName } from "@/config/constants";
 import RadioList from "@/features/radio/components/radio-list";
 import DashboardWeatherCard from "@/features/weather/components/dashboard-weather-card";
 
@@ -10,10 +11,10 @@ const Welcome = () => {
       <Card className="col-span-1 grid grid-cols-2 gap-x-4">
         <div>
           <CardDescription>おはようございます</CardDescription>
-          <CardTitle className="text-2xl">しずちゃん</CardTitle>
+          <CardTitle className="text-2xl">{getAuthName()}</CardTitle>
         </div>
         <div>
-          <CardDescription>Day</CardDescription>
+          <CardDescription>今日は</CardDescription>
           <CardTitle>{jpDay[new Date().getDay()]}曜日</CardTitle>
         </div>
       </Card>

@@ -1,16 +1,15 @@
 import { buttonColors, hoverColors } from "@/config/app-data";
-import { localStorageKeys } from "@/config/constants";
 import { useRadioStore } from "@/stores/store";
-import { cn } from "@/utils/utils";
+import { clearAuthLocalStorage, cn } from "@/utils/utils";
+import { useQueryClient } from "@tanstack/react-query";
 import { LogOut } from "lucide-react";
 import { HTMLAttributes } from "react";
-import { useNavigate } from "react-router";
 
 const LogoutBtn = ({ className, ...rest }: HTMLAttributes<HTMLDivElement>) => {
-  const navigate = useNavigate();
   const clearCurrentPlaying = useRadioStore(
     (state) => state.clearCurrentPlaying
   );
+  const queryClient = useQueryClient();
   return (
     <div
       {...rest}
@@ -21,9 +20,9 @@ const LogoutBtn = ({ className, ...rest }: HTMLAttributes<HTMLDivElement>) => {
         className
       )}
       onClick={() => {
-        localStorage.removeItem(localStorageKeys.auth.authToken);
+        clearAuthLocalStorage();
+        queryClient.clear();
         clearCurrentPlaying();
-        navigate("/");
       }}
     >
       <LogOut className="w-5 h-5" />

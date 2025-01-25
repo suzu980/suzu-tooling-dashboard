@@ -26,10 +26,7 @@ export const queryDefaultOptions: QueryClientConfig = {
     queries: {
       refetchOnWindowFocus: false,
       refetchOnReconnect: false,
-      staleTime: Infinity,
       refetchInterval: false,
-      refetchOnMount: false,
-      retryOnMount: false,
       retry: false,
     },
   },

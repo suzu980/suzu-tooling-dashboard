@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { authWithPassword } from "../../api/api";
-import { localStorageKeys } from "@/config/constants";
 import toast from "react-hot-toast";
 import DarkModeToggle from "@/components/ui/dark-mode-toggle/nav-dark-mode-toggle";
+import { setAuthLocalStorage } from "@/utils/utils";
 
 type LoginFormInputs = {
   username: string;
@@ -24,14 +24,11 @@ const LoginForm = () => {
     toast.promise(tryAuth, {
       loading: "Logging in",
       success: (data) => `Welcome back ${data.record.name}!`,
-      error: (err) => err.message,
+      error: (err) => err?.message ?? "Could not connect to server",
     });
     tryAuth
       .then((responseData) => {
-        localStorage.setItem(
-          localStorageKeys.auth.authToken,
-          responseData.token
-        );
+        setAuthLocalStorage(responseData);
         navigate("/dashboard");
       })
       .catch((err) => {

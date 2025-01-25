@@ -1,4 +1,6 @@
+import { localStorageKeys } from "@/config/constants";
 import { refreshToken } from "@/features/auth/api/api";
+import { AuthedUser } from "@/features/auth/types";
 import { URLParamType } from "@/types/types";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -19,4 +21,13 @@ export const checkAuth = async (token: string) => {
       console.error(err);
       return null;
     });
+};
+
+export const setAuthLocalStorage = (data: AuthedUser) => {
+  localStorage.setItem(localStorageKeys.auth.authToken, data.token);
+  localStorage.setItem(localStorageKeys.auth.userName, data.record.name);
+};
+export const clearAuthLocalStorage = () => {
+  localStorage.removeItem(localStorageKeys.auth.authToken);
+  localStorage.removeItem(localStorageKeys.auth.userName);
 };

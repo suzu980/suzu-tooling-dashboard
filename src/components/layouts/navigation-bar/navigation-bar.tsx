@@ -7,11 +7,10 @@ import {
   textColors,
 } from "@/config/app-data";
 import NavigationItem from "./navigation-item";
-import { cn } from "@/utils/utils";
+import { clearAuthLocalStorage, cn } from "@/utils/utils";
 import RadioPlayer from "@/features/radio/components/radio-player";
 import AnimatedOutlet from "../animated-outlet";
 import { useNavigate } from "react-router";
-import { localStorageKeys } from "@/config/constants";
 import DarkModeToggle from "@/components/ui/dark-mode-toggle/nav-dark-mode-toggle";
 import { LogOut } from "lucide-react";
 const NavigationBar = () => {
@@ -47,7 +46,7 @@ const NavigationBar = () => {
             hoverColors
           )}
           onClick={() => {
-            localStorage.removeItem(localStorageKeys.auth.authToken);
+            clearAuthLocalStorage();
             navigate("/");
           }}
         >

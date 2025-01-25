@@ -51,10 +51,20 @@ export const routes = {
   radio: {
     radioList: "http://127.0.0.1:8090/api/collections/radio_list/records",
   },
+  rss: {
+    rssList: "http://127.0.0.1:8090/api/collections/rss_collection/records",
+  },
 };
 
 export const localStorageKeys = {
   auth: {
     authToken: "userAuthToken",
+    userName: "userName",
   },
 };
+
+export const getAuthKey = () =>
+  localStorage.getItem(localStorageKeys.auth.authToken);
+
+export const getAuthName = () =>
+  localStorage.getItem(localStorageKeys.auth.userName);
