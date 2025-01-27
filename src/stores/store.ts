@@ -9,6 +9,12 @@ interface AuthState {
   isAuthed: boolean | null;
   setIsAuthed: (state: boolean | null) => void;
 }
+
+interface RssState {
+  feedURL: string | null;
+  setFeedURL: (state: string | null) => void;
+  clearFeed: () => void;
+}
 export const useRadioStore = create<RadioState>((set) => ({
   currentPlaying: null,
   setCurrentPlaying: (newState) => set(() => ({ currentPlaying: newState })),
@@ -18,4 +24,10 @@ export const useRadioStore = create<RadioState>((set) => ({
 export const useAuthStore = create<AuthState>((set) => ({
   isAuthed: null,
   setIsAuthed: (newState) => set(() => ({ isAuthed: newState })),
+}));
+
+export const useRssStore = create<RssState>((set) => ({
+  feedURL: null,
+  setFeedURL: (newState) => set(() => ({ feedURL: newState })),
+  clearFeed: () => set(() => ({ feedURL: null })),
 }));

@@ -1,11 +1,11 @@
 import { borderColors, cardColors, shadowColors } from "@/config/app-data";
 import { cn } from "@/utils/utils";
-import { motion } from "motion/react";
+import { HTMLMotionProps, motion } from "motion/react";
 
-type CardProps = {
+interface CardProps extends HTMLMotionProps<"div"> {
   children?: React.ReactNode;
   className?: string;
-};
+}
 export const CardSubDescription = ({ children, className }: CardProps) => {
   return (
     <motion.div
@@ -46,9 +46,10 @@ export const CardTitle = ({ children, className }: CardProps) => {
   );
 };
 
-export const Card = ({ children, className }: CardProps) => {
+export const Card = ({ children, className, ...rest }: CardProps) => {
   return (
     <motion.div
+      {...rest}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0 }}

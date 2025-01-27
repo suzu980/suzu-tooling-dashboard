@@ -53,6 +53,7 @@ export const routes = {
   },
   rss: {
     rssList: "http://127.0.0.1:8090/api/collections/rss_collection/records",
+    rssParser: "http://127.0.0.1:8000/rss",
   },
 };
 
